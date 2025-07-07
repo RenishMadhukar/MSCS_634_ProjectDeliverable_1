@@ -50,8 +50,3 @@ I selected this dataset because **heart disease prediction** is a critical probl
 ## Conclusion
 This deliverable focused on the **data cleaning** and **exploratory data analysis (EDA)** of the heart disease dataset. I’ve cleaned the data by handling missing values, removing duplicates, and eliminating outliers. Additionally, I’ve derived key insights, such as correlations between features and their distribution patterns, which will guide future modeling steps. In the next phase, I will work on building predictive models and evaluating their performance.
 
-## Files Included
-- **`cleaned_heart_dataset.csv`**: The cleaned dataset after data preparation.
-- **`ProjectDeliverable_1.ipynb`**: Jupyter notebook containing all the code for data cleaning, analysis, and visualizations.
-- **`Comprehensive_Report.pdf`**: The report summarizing the project steps, findings, and future work.
-

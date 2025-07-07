@@ -1,52 +1,53 @@
 # MSCS_634_ProjectDeliverable_1
 
 ## Dataset Summary
-For this project, I used a **heart disease dataset** that contains **303 records** with **14 features**. The dataset includes both numerical and categorical attributes, such as:
-- **Age**: The age of the individual.
+For this project, I used the **Heart Disease Dataset**, which contains **303 records** and **14 attributes**. The dataset includes both numerical and categorical features, such as:
+- **Age**: Age of the individual.
 - **Sex**: Gender (1 = male, 0 = female).
-- **Chest Pain Type (cp)**: Type of chest pain the individual experiences.
+- **Chest Pain Type (cp)**: Type of chest pain experienced.
 - **Resting Blood Pressure (trestbps)**: Blood pressure during rest (mm Hg).
 - **Cholesterol (chol)**: Serum cholesterol level (mg/dl).
 - **Fasting Blood Sugar (fbs)**: Whether fasting blood sugar is greater than 120 mg/dl.
-- **Resting Electrocardiographic Results (restecg)**: Results of electrocardiographic tests.
-- **Maximum Heart Rate Achieved (thalach)**: The highest heart rate achieved during exercise.
+- **Resting Electrocardiographic Results (restecg)**: Electrocardiographic results.
+- **Maximum Heart Rate Achieved (thalach)**: Highest heart rate achieved during exercise.
 - **Exercise Induced Angina (exang)**: Whether exercise induced angina was experienced.
 - **Oldpeak**: Depression induced by exercise relative to rest.
-- **Slope**: The slope of the peak exercise ST segment.
-- **Number of Vessels Colored by Fluoroscopy (ca)**: A count of colored vessels.
+- **Slope**: Slope of the peak exercise ST segment.
+- **Number of Vessels Colored by Fluoroscopy (ca)**: Count of colored vessels.
 - **Thalassemia (thal)**: A categorical feature indicating the presence of thalassemia.
 - **Target**: Whether the individual has heart disease (1 = yes, 0 = no).
 
-I selected this dataset because **heart disease prediction** is a critical problem in healthcare, and it provides a good mix of features for classification and analysis.
+I chose this dataset because predicting **heart disease** is a significant healthcare challenge, and the dataset provides a range of features that can be useful for classification.
 
-## Data Cleaning Steps
+## Key Insights from My Analysis
+- **Cholesterol Distribution**: The distribution of **cholesterol** levels was right-skewed, suggesting that a **log transformation** may help in normalizing the data.
+- **Age and Heart Rate**: There was a positive correlation between **age** and **maximum heart rate**. This means that older individuals tend to have lower maximum heart rates during exercise.
+- **Heart Disease Prediction**: The **target variable** (heart disease) showed a slight imbalance, with more individuals suffering from heart disease. However, the dataset was balanced enough to proceed with predictive modeling.
+- **Outliers**: Significant outliers were present in the **cholesterol** feature. I addressed this by removing extreme values using the **Interquartile Range (IQR)** method, ensuring the data is more suitable for analysis.
+
+## Major Steps Taken in Data Cleaning and Exploration
 1. **Handling Missing Values**: 
-   - I found a few missing values in the numerical columns. I chose to **impute** these missing values with the **mean** of the respective columns.
+   - I identified a few missing values in the dataset and decided to **impute** them with the **mean** of the respective columns. This ensured the dataset remained complete without losing too many records.
    
-2. **Removing Duplicates**:
-   - I checked for duplicate rows in the dataset and removed them to ensure the dataset was clean and unbiased.
+2. **Removing Duplicates**: 
+   - I checked for duplicate rows in the dataset and found a few duplicates, which I removed to ensure the analysis wasn't skewed by redundant data.
+   
+3. **Outlier Detection and Removal**: 
+   - I used **boxplots** to visually detect outliers, especially in the **cholesterol** feature. After detecting the extreme values, I removed them using the **IQR method** to improve the data's quality.
+   
+4. **Ensuring Correct Data Types**: 
+   - I checked the data types of each column to ensure they were accurate (e.g., categorical variables like **sex** and **cp** were treated as categorical features). I corrected any inconsistencies to avoid errors in analysis.
 
-3. **Identifying and Removing Outliers**:
-   - I used **boxplots** to detect outliers in numerical features, such as cholesterol levels. After identifying the outliers, I used the **IQR method** to remove extreme outliers.
+## Challenges Encountered and How They Were Addressed
+1. **Handling Missing Data**: 
+   - I initially considered removing rows with missing values but decided to **impute** missing numerical values using the **mean** of the respective columns. This decision helped preserve the dataset size without significantly affecting the quality of the data.
+   
+2. **Dealing with Outliers**: 
+   - I was unsure whether to remove the outliers entirely or apply transformations to make them less influential. After visualizing the data using **boxplots**, I chose to **remove the extreme outliers** using the **IQR method**. This approach ensured that the data would be more suitable for modeling without extreme values affecting the results.
 
-4. **Ensuring Correct Data Types**:
-   - I verified that each column had the appropriate data type (e.g., categorical variables as `object`, numerical variables as `int` or `float`).
-
-## Key Insights
-- **Cholesterol Distribution**: The distribution of **cholesterol levels** was skewed. This suggested that a **log transformation** might be helpful to reduce skewness for future modeling steps.
-- **Correlation Between Age and Maximum Heart Rate**: There was a **positive correlation** between **age** and **maximum heart rate**. Older individuals tended to have a lower maximum heart rate during exercise.
-- **Heart Disease Prediction**: The **target variable** (heart disease) showed a slight imbalance, with more individuals showing signs of heart disease. However, the data is not overly skewed.
-- **Outliers**: I identified and removed outliers, particularly in the **cholesterol** feature, which helped in ensuring the model is not biased by extreme values.
-
-## Challenges
-- **Handling Missing Values**: Initially, I was unsure whether to remove rows with missing values or impute them. After considering the impact on the dataset, I chose **mean imputation** for simplicity and consistency across columns.
-- **Outliers**: Deciding how to handle outliers was tricky, as removing them could impact the model. However, after visualizing the data with boxplots, I felt confident in removing extreme outliers using the **IQR method** to avoid distortions.
-
-## Next Steps
-- **Modeling**: I plan to move on to the next phase, where I will apply machine learning models (such as Logistic Regression, Decision Trees, etc.) to predict heart disease based on the cleaned data.
-- **Evaluation**: I will evaluate the models using metrics like **accuracy**, **precision**, and **recall**, and fine-tune them to improve prediction performance.
-- **Visualization**: I will continue using visualizations to better understand the model's performance and the feature importance.
+3. **Feature Scaling**: 
+   - While I didn't perform scaling in this deliverable, I considered it for the next step of the project. Some features (like **cholesterol**) may benefit from normalization or transformation to improve model performance.
 
 ## Conclusion
-This deliverable focused on the **data cleaning** and **exploratory data analysis (EDA)** of the heart disease dataset. I’ve cleaned the data by handling missing values, removing duplicates, and eliminating outliers. Additionally, I’ve derived key insights, such as correlations between features and their distribution patterns, which will guide future modeling steps. In the next phase, I will work on building predictive models and evaluating their performance.
+This deliverable focused on **data cleaning** and **exploratory data analysis (EDA)**. Through this process, I ensured that the dataset was clean, outliers were removed, and missing values were handled. I also identified some useful insights, such as the correlation between **age** and **maximum heart rate**. The next steps in the project will involve building predictive models to classify whether a person has heart disease based on the cleaned dataset.
 
